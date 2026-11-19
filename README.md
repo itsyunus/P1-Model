@@ -1,108 +1,22 @@
-# 🧠 PlayerOne
+# PlayerOne - Local LLM Flow Engine
 
-A minimal, OpenAI-free LLM flow engine to create and test chatbots using open-source models like `gpt2` or `phi-2`. Inspired by Azure's Prompt Flow but works **fully offline** and locally.
+A lightweight, fully offline local LLM orchestration framework inspired by Azure Prompt Flow. Enables declarative construction and evaluation of conversational agent pipelines using open-source models without cloud API dependencies.
 
----
+## Architecture
 
-## 🚀 Features
+- Declarative Flows: Define execution DAGs and conversational parameters using standard YAML configuration files.
+- Local Inference: Integrates HuggingFace `transformers` and `torch` to run models (such as GPT-2 or Phi-2) locally on CPU or CUDA.
+- Interactive CLI: Built with `typer` to provide rapid initialization, testing, and debugging directly from terminal sessions.
 
-- 🧱 Flow-based design using simple YAML
-- 🤖 Local LLMs with `transformers` (e.g., GPT2, Phi-2)
-- 💬 Interactive CLI-based chatbot
-- 🔓 No API keys or cloud access needed
-- 🪶 Lightweight and beginner-friendly
-
----
-
-## 📁 Directory Structure
-
-```
-PlayerOne/
-├── cli.py                   # CLI commands (init, test)
-├── engine.py                # Flow loader + chatbot runner
-├── flow_templates/
-│   └── chatbot.yaml         # Default flow template
-├── main.py                  # Entry point
-├── requirements.txt
-```
-
----
-
-## 🔧 Installation
-
-1. Clone the repo:
+## Quick Start
 
 ```bash
-git clone https://github.com/itsyunus/P1-Prompt_Engg.git
-cd P1-Prompt_Engg
-```
+# Install dependencies
+pip install -r PlayerOne/requirements.txt
 
-2. (Optional) Create a virtual environment:
-
-```bash
-python -m venv venv
-venv\Scripts\activate  # On Windows
-```
-
-3. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## ⚡ Quick Start
-
-### 1. Initialize a chatbot flow
-
-```bash
+# Initialize a new conversational flow
 python -m PlayerOne.main init my_chatbot
-```
 
-This creates a folder `my_chatbot/flow.yaml` based on the default template.
-
-### 2. Run the chatbot interactively
-
-```bash
+# Run interactive chatbot session
 python -m PlayerOne.main test my_chatbot
 ```
-
-Type messages in the terminal. Type `exit` to quit.
-
----
-
-## 🧠 Use a Better Model
-
-To switch to a smarter open model like `microsoft/phi-2`, edit `my_chatbot/flow.yaml`:
-
-```yaml
-flow:
-  name: simple_chat
-  model: microsoft/phi-2
-```
-
----
-
-## 🛠 Requirements
-
-- Python 3.9 to 3.11
-- `transformers`, `torch`, `typer`, `PyYAML`
-
-Install via:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 🤝 Contributing
-
-Pull requests and suggestions are welcome! Make sure your code is clean and tested.
-
----
-
-## 📄 License
-
-MIT License © 2025 Shaik Mohammad Yunus
